@@ -87,8 +87,8 @@ public class FlightManager {
             ) {
                 int index = 0;
                 stmt.setLong(++index, item.getAircraftId());
-                stmt.setString(++index, item.getSourceCity());
-                stmt.setString(++index, item.getDestCity());
+                stmt.setString(++index, item.getSourceCity().toUpperCase());
+                stmt.setString(++index, item.getDestCity().toUpperCase());
                 stmt.setLong(++index, item.getDepartureTime());
                 stmt.setLong(++index, item.getArrivalTime());
                 stmt.setLong(++index, item.getJourneyDuration());
@@ -150,11 +150,11 @@ public class FlightManager {
 
     public List<Flight> search(String sourceCity, String destCity, long departureTime) {
         if (sourceCity.isEmpty()){
-            return null;
+            throw new NotFoundException();
         }
 
         if (destCity.isEmpty()){
-            return null;
+            throw new NotFoundException();
         }
         sourceCity = sourceCity.toUpperCase();
         destCity = destCity.toUpperCase();
@@ -163,11 +163,11 @@ public class FlightManager {
                 Connection conn = dataSource.getConnection();
                 PreparedStatement stmt = conn.prepareStatement("select id, aircraft_id, source_city," +
                         " destination_city, departure_time, arrival_time,journey_duration, price" +
-                        " from flights where source_city = ? and destination_city = ?" +
-                        " and departure_time >= ?")
+                        " from flights where source_city like ? and destination_city like ?" +
+                        " and departure_time =  ?")
         ) {
-            stmt.setString(1, sourceCity);
-            stmt.setString(2, destCity);
+            stmt.setString(1, "%" + sourceCity + "%");
+            stmt.setString(2, "%" + destCity + "%");
             stmt.setLong(3, departureTime);
             ResultSet rs = stmt.executeQuery();
             List<Flight> items = new ArrayList<>();

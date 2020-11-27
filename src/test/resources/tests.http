@@ -48,5 +48,5 @@ http://localhost:8080/flights/aircrafts/10
 
 ###
 
-http://localhost:8080/flights/search?sourceCity=melbourne&destCity=london&departureTime=5000
+http://localhost:8080/flights/search?sourceCity=ka&destCity=tu&departureTime=10000
 
