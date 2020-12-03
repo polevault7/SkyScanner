@@ -1,27 +1,28 @@
-http://localhost:8080/airCrafts
+GET http://localhost:8080/airCrafts
 
 ###
 
-http://localhost:8080/flights/1
+GET http://localhost:8080/flights/1
 
 ###
-http://localhost:8080/flights/19
-
-###
-
-http://localhost:8080/flights/1/save?airline="Уральские Авиалинии"&model="Ил-62"&capacity=80
-###
-
-
-http://localhost:8080/flights/0/save?airline="British Airways"&model="Ил-95"&capacity=220
+GET http://localhost:8080/flights/19
 
 ###
 
-http://localhost:8080/flights/19/remove
+POST http://localhost:8080/flights/1/save?airline="Уральские Авиалинии"&model="Ил-62"&capacity=80
 
 ###
 
-http://localhost:8080/flights
+
+POST http://localhost:8080/flights/0/save?airline="British Airways"&model="Ил-95"&capacity=220
+
+###
+
+POST http://localhost:8080/flights/19/remove
+
+###
+
+GET http://localhost:8080/flights
 
 ###
 
@@ -29,24 +30,64 @@ http://localhost:8080/flights/
 
 ###
 
-http://localhost:8080/flights/0/save?aircraftId=9&sourceCity=Kazakhstan&destCity=Turkey&departureTime=10000&arrivalTime=200000&journeyDuration=500&price=15000
+http://localhost:8080/flights/0/save?aircraftId=9&sourceCity=&destCity=&departureTime=10000&arrivalTime=200000&journeyDuration=500&price=15000
 
 ###
 
 http://localhost:8080/flights/8/delete
+
 ###
 
 http://localhost:8080/flights/0/save?aircraftId=9&sourceCity=Kazakhstan&destCity=Turkey&departureTime=10000&arrivalTime=200000&journeyDuration=500&price=15000
 
 ###
 
-http://localhost:8080/flights/0/save?aircraftId=12&sourceCity=Volgograd&destCity=Moscow&departureTime=10000&arrivalTime=200000&journeyDuration=500&price=15000
+http://localhost:8080/flights/0/save?aircraftId=12&sourceCity=Volgograd&destCity=Moscow&departureTime=1607979600000&arrivalTime=200000&journeyDuration=500&price=15000
 
 ###
 
-http://localhost:8080/flights/aircrafts/10
+http://localhost:8080/flights/aircrafts/2
 
 ###
 
-http://localhost:8080/flights/search?sourceCity=ka&destCity=tu&departureTime=10000
+http://localhost:8080/flights/search?sourceCity=kaz&destCity=mo&departureTime=1607979600000
 
+###
+
+http://localhost:8080/flights/sort/price?sourceCity=ka&destCity=mos&departureTime=15.12.2020
+
+
+###
+
+http://localhost:8080/flights/sort/departure?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+
+###
+
+GET  http://localhost:8080/flights/search?sourceCity=&destCity=mo&departureTime=15.12.2020
+
+###
+POST http://localhost:8080/flights
+Content-Type: application/json
+
+{
+  "id": 0,
+  "aircraftId": 12,
+  "sourceCity": "Volgograd",
+  "destCity": "Moscow",
+  "departureTime": 1607979600000,
+  "arrivalTime": 200000,
+  "journeyDuration": 500,
+  "price": 15000
+}
+
+###
+
+DELETE http://localhost:8080/flights/4
+
+
+###
+GET  http://localhost:8080/flights/sort/price?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+
+###
+
+GET http://localhost:8080/flights/by-aircraft/2

@@ -40,5 +40,4 @@ public class AirCraftController {
     public AirCraft removeById(@PathVariable long id) {
        return manager.removeById(id);
     }
-
 }
