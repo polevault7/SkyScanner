@@ -1,0 +1,18 @@
+
+GET http://localhost:8080/flights/
+
+###
+
+POST http://localhost:8080/flights
+Content-Type: application/json
+
+{
+  "id": 0,
+  "aircraftId": 12,
+  "sourceCity": "Volgograd",
+  "destCity": "Moscow",
+  "departureTime": 1607979600000,
+  "arrivalTime": 200000,
+  "journeyDuration": 500,
+  "price": 15000
+}
