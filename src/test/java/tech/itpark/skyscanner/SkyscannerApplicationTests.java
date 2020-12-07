@@ -158,7 +158,7 @@ class SkyscannerApplicationTests {
                                                 "  \"aircraftId\": 2,\n" +
                                                 "  \"sourceCity\": \"MILAN\",\n" +
                                                 "  \"destCity\": \"PARIS\",\n" +
-                                                "  \"departureTime\": 1607979600000,\n" +
+                                                "  \"departureTime\": 1607990400000,\n" +
                                                 "  \"arrivalTime\": 1500000,\n" +
                                                 "  \"journeyDuration\": 50000,\n" +
                                                 "  \"price\": 1000\n" +
@@ -174,7 +174,7 @@ class SkyscannerApplicationTests {
                                         "    \"aircraftId\": 1,\n" +
                                         "    \"sourceCity\": \"KAZAN\",\n" +
                                         "    \"destCity\": \"MOSCOW\",\n" +
-                                        "    \"departureTime\": 1607979600000,\n" +
+                                        "    \"departureTime\": 1607990400000,\n" +
                                         "    \"arrivalTime\": 1500000,\n" +
                                         "    \"journeyDuration\": 100000,\n" +
                                         "    \"price\": 30000\n" +
@@ -184,7 +184,7 @@ class SkyscannerApplicationTests {
                                         "    \"aircraftId\": 2,\n" +
                                         "    \"sourceCity\": \"KAZAN\",\n" +
                                         "    \"destCity\": \"MOSCOW\",\n" +
-                                        "    \"departureTime\": 1607979600000,\n" +
+                                        "    \"departureTime\": 1607990400000,\n" +
                                         "    \"arrivalTime\": 1500000,\n" +
                                         "    \"journeyDuration\": 10000,\n" +
                                         "    \"price\": 5000\n" +
@@ -194,7 +194,7 @@ class SkyscannerApplicationTests {
                                         "    \"aircraftId\": 2,\n" +
                                         "    \"sourceCity\": \"KAZAN\",\n" +
                                         "    \"destCity\": \"MOSCOW\",\n" +
-                                        "    \"departureTime\": 1607979600000,\n" +
+                                        "    \"departureTime\": 1607990400000,\n" +
                                         "    \"arrivalTime\": 1500000,\n" +
                                         "    \"journeyDuration\": 50000,\n" +
                                         "    \"price\": 1000\n" +
@@ -204,7 +204,7 @@ class SkyscannerApplicationTests {
                                         "    \"aircraftId\": 5,\n" +
                                         "    \"sourceCity\": \"LOS-ANGELES\",\n" +
                                         "    \"destCity\": \"PARIS\",\n" +
-                                        "    \"departureTime\": 1607979600000,\n" +
+                                        "    \"departureTime\": 1607990400000,\n" +
                                         "    \"arrivalTime\": 1500000,\n" +
                                         "    \"journeyDuration\": 50000,\n" +
                                         "    \"price\": 1000\n" +
