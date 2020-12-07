@@ -46,4 +46,4 @@ GET https://project-skyscanner.herokuapp.com/flights/by-aircraft/2
 
 ###
 
-GET http://localhost:8080/flights/search?sourceCity=ka&destCity=mo
+GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo

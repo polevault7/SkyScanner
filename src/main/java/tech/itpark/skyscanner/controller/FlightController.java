@@ -58,10 +58,10 @@ public class FlightController {
     @GetMapping("/search")
     public List<Flight> search(
             @RequestParam String sourceCity,
-            @RequestParam String destCity
-//            @RequestParam String departureTime
+            @RequestParam String destCity,
+            @RequestParam String departureTime
     ) {
-        return manager.search(sourceCity, destCity);
+        return manager.search(sourceCity, destCity, departureTime);
     }
 
 //    @GetMapping("/sort/price")

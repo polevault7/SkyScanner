@@ -101,7 +101,7 @@ public class FlightManager {
         return item;
     }
 
-    public List<Flight> search(String sourceCity, String destCity) {
+    public List<Flight> search(String sourceCity, String destCity, String departureTime) {
         if (sourceCity.isEmpty()) {
             throw new NotFoundException();
         }
@@ -112,23 +112,23 @@ public class FlightManager {
         sourceCity = sourceCity.toUpperCase();
         destCity = destCity.toUpperCase();
 
-//        long departureTimeToLong = 0L;
-//        try {
-//            Date parse = sdf.parse(departureTime);
-//            departureTimeToLong = parse.getTime();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        long departureTimeToLong = 0L;
+        try {
+            Date parse = sdf.parse(departureTime);
+            departureTimeToLong = parse.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         return template.query(
                 "select id, aircraft_id, source_city," +
                         " destination_city, departure_time, arrival_time,journey_duration, price" +
                         " from flights where source_city like :source_city and destination_city like :destination_city" +
-                        " order by price  limit 10",
+                        " and departure_time = :departure_time order by price  limit 10",
                 new MapSqlParameterSource(Map.of(
                         "source_city", "%" + sourceCity + "%",
-                        "destination_city", "%" + destCity + "%"
-//                        "departure_time", departureTimeToLong
+                        "destination_city", "%" + destCity + "%",
+                        "departure_time", departureTimeToLong
                 )), new FlightRowMapper()
         );
 
