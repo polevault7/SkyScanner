@@ -63,7 +63,7 @@ http://localhost:8080/flights/sort/departure?sourceCity=ka&destCity=mo&departure
 
 ###
 
-GET  http://localhost:8080/flights/search?sourceCity=&destCity=mo&departureTime=15.12.2020
+GET  http://localhost:8080/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
 
 ###
 POST http://localhost:8080/flights

@@ -1,0 +1,49 @@
+https://project-skyscanner.herokuapp.com/flights/
+
+###
+
+https://project-skyscanner.herokuapp.com/flights/1
+
+###
+
+POST https://project-skyscanner.herokuapp.com/flights/
+Content-Type: application/json
+
+{
+  "id": 0,
+  "aircraftId": 12,
+  "sourceCity": "Volgograd",
+  "destCity": "Moscow",
+  "departureTime": 1607979600000,
+  "arrivalTime": 200000,
+  "journeyDuration": 500,
+  "price": 15000
+}
+
+###
+
+DELETE https://project-skyscanner.herokuapp.com/flights/7
+
+###
+
+GET  https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+
+###
+
+GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=kaZAN&destCity=moSCOW&departureTime=15.12.2020
+
+###
+
+GET  http://localhost:8080/flights/search?sourceCity=kaZAN&destCity=moSCOW&departureTime=15.12.2020
+
+###
+
+GET https://project-skyscanner.herokuapp.com/flights/sort/price?sourceCity=ka&destCity=mo
+
+###
+
+GET https://project-skyscanner.herokuapp.com/flights/by-aircraft/2
+
+###
+
+GET http://localhost:8080/flights/search?sourceCity=ka&destCity=mo
