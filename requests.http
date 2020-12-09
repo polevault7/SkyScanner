@@ -46,4 +46,9 @@ GET https://project-skyscanner.herokuapp.com/flights/by-aircraft/2
 
 ###
 
-GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo
+GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+
+
+###
+
+GET http://project-skyscanner.herokuapp.com/flights/sort/

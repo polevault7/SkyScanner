@@ -64,20 +64,20 @@ public class FlightController {
         return manager.search(sourceCity, destCity, departureTime);
     }
 
-//    @GetMapping("/sort/price")
-//    public List<Flight> sortByPrice(
-//            @RequestParam String sourceCity,
-//            @RequestParam String destCity,
-//            @RequestParam String departureTime
-//    ) {
-//        return manager.sortByPrice(sourceCity, destCity, departureTime);
-//    }
-//    @GetMapping("/sort/departure")
-//    public List<Flight> sortByJourneyDuration(
-//            @RequestParam String sourceCity,
-//            @RequestParam String destCity,
-//            @RequestParam String departureTime
-//    ) {
-//        return manager.sortByJourneyDuration(sourceCity, destCity, departureTime);
-//    }
+    @GetMapping("/sort/price")
+    public List<Flight> sortByPrice(
+            @RequestParam String sourceCity,
+            @RequestParam String destCity,
+            @RequestParam String departureTime
+    ) {
+        return manager.sortByPrice(sourceCity, destCity, departureTime);
+    }
+    @GetMapping("/sort/departure")
+    public List<Flight> sortByJourneyDuration(
+            @RequestParam String sourceCity,
+            @RequestParam String destCity,
+            @RequestParam String departureTime
+    ) {
+        return manager.sortByJourneyDuration(sourceCity, destCity, departureTime);
+    }
 }

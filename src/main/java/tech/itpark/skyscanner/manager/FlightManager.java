@@ -15,6 +15,9 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Date;
 
@@ -111,14 +114,17 @@ public class FlightManager {
         }
         sourceCity = sourceCity.toUpperCase();
         destCity = destCity.toUpperCase();
-
-        long departureTimeToLong = 0L;
-        try {
-            Date parse = sdf.parse(departureTime);
-            departureTimeToLong = parse.getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Date parse = sdf.parse(departureTime);
+//            departureTimeToLong = parse.getTime();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate date = LocalDate.parse(departureTime, dtf);
+        long millisInUtc = date.atStartOfDay(ZoneOffset.UTC)
+                .toInstant()
+                .toEpochMilli();
 
         return template.query(
                 "select id, aircraft_id, source_city," +
@@ -128,24 +134,24 @@ public class FlightManager {
                 new MapSqlParameterSource(Map.of(
                         "source_city", "%" + sourceCity + "%",
                         "destination_city", "%" + destCity + "%",
-                        "departure_time", departureTimeToLong
+                        "departure_time", millisInUtc
                 )), new FlightRowMapper()
         );
 
     }
 
 
-//    public List<Flight> sortByPrice(String sourceCity, String destCity, String departureTime) {
-//        List<Flight> result = search(sourceCity, destCity, departureTime);
-//        result.sort((o1, o2) -> -(o1.getPrice() - o2.getPrice()));
-//        return result;
-//    }
-//
-//    public List<Flight> sortByJourneyDuration(String sourceCity, String destCity, String departureTime) {
-//        List<Flight> result = search(sourceCity, destCity, departureTime);
-//        result.sort(Comparator.comparingLong(Flight::getJourneyDuration));
-//        return result;
-//    }
+    public List<Flight> sortByPrice(String sourceCity, String destCity, String departureTime) {
+        List<Flight> result = search(sourceCity, destCity, departureTime);
+        result.sort((o1, o2) -> -(o1.getPrice() - o2.getPrice()));
+        return result;
+    }
+
+    public List<Flight> sortByJourneyDuration(String sourceCity, String destCity, String departureTime) {
+        List<Flight> result = search(sourceCity, destCity, departureTime);
+        result.sort(Comparator.comparingLong(Flight::getJourneyDuration));
+        return result;
+    }
 
     private Flight mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Flight(

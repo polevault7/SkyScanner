@@ -13,8 +13,8 @@ create table flights
     foreign key (aircraft_id) references airCrafts,
     source_city      varchar(255) not null,
     destination_city varchar(255) not null,
-    departure_time   BIGINT      not null,
-    arrival_time     BIGINT      not null,
+    departure_time   BIGINT     not null,
+    arrival_time     BIGINT    not null,
     journey_duration BIGINT      not null,
     price            integer      not null
 );

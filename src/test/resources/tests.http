@@ -46,7 +46,7 @@ http://localhost:8080/flights/0/save?aircraftId=12&sourceCity=Volgograd&destCity
 
 ###
 
-http://localhost:8080/flights/aircrafts/2
+http://localhost:8080/flights/2
 
 ###
 
@@ -63,7 +63,7 @@ http://localhost:8080/flights/sort/departure?sourceCity=ka&destCity=mo&departure
 
 ###
 
-GET  http://localhost:8080/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+GET  http://localhost:8080/flights/search?sourceCity=ka&destCity=mo&departureTime=17.12.2020
 
 ###
 POST http://localhost:8080/flights
