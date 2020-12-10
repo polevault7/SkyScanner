@@ -1,11 +1,12 @@
+//List all the flights
 https://project-skyscanner.herokuapp.com/flights/
 
 ###
-
+//List the first flight
 https://project-skyscanner.herokuapp.com/flights/1
 
 ###
-
+//Save new flight
 POST https://project-skyscanner.herokuapp.com/flights/
 Content-Type: application/json
 
@@ -21,24 +22,36 @@ Content-Type: application/json
 }
 
 ###
+//Update flight with id 1
+POST https://project-skyscanner.herokuapp.com/flights/
+Content-Type: application/json
 
-DELETE https://project-skyscanner.herokuapp.com/flights/7
+{
+  "id": 5,
+  "aircraftId": 12,
+  "sourceCity": "TOKYO",
+  "destCity": "MELBOURNE",
+  "departureTime": 1607979600000,
+  "arrivalTime": 200000,
+  "journeyDuration": 160795000,
+  "price": 150000
+}
+
+###
+//Delete flight with id 6
+DELETE https://project-skyscanner.herokuapp.com/flights/6
+
+###
+//List all the flights after removal of flight with id 6
+GET https://project-skyscanner.herokuapp.com/flights/
+
+###
+//search for flights
+GET  https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=17.12.2020
 
 ###
 
-GET  https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
-
-###
-
-GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=kaZAN&destCity=moSCOW&departureTime=15.12.2020
-
-###
-
-GET  http://localhost:8080/flights/search?sourceCity=kaZAN&destCity=moSCOW&departureTime=15.12.2020
-
-###
-
-GET https://project-skyscanner.herokuapp.com/flights/sort/price?sourceCity=ka&destCity=mo
+GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=kaZAN&destCity=moSCOW&departureTime=17.12.2020
 
 ###
 
@@ -46,9 +59,13 @@ GET https://project-skyscanner.herokuapp.com/flights/by-aircraft/2
 
 ###
 
-GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=15.12.2020
+GET https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=17.12.2020
 
 
 ###
 
-GET http://project-skyscanner.herokuapp.com/flights/sort/
+GET http://project-skyscanner.herokuapp.com/flights/sort/price?sourceCity=ka&destCity=mo&departureTime=17.12.2020
+
+###
+
+GET http://project-skyscanner.herokuapp.com/flights/sort/departure?sourceCity=ka&destCity=mo&departureTime=17.12.2020

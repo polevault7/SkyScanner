@@ -24,7 +24,6 @@ import java.util.Date;
 @RequiredArgsConstructor
 @Component
 public class FlightManager {
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
     private final NamedParameterJdbcTemplate template;
     private final FlightRowMapper rowMapper = new FlightRowMapper();
 
@@ -82,6 +81,7 @@ public class FlightManager {
                         " departure_time = :departure_time, arrival_time = :arrival_time," +
                         " journey_duration = :journey_duration, price = :price where id = :id",
                 Map.of(
+                        "id", item.getId(),
                         "aircraft_id", item.getAircraftId(),
                         "source_city", item.getSourceCity(),
                         "destination_city", item.getDestCity(),
@@ -112,14 +112,10 @@ public class FlightManager {
         if (destCity.isEmpty()) {
             throw new NotFoundException();
         }
+
         sourceCity = sourceCity.toUpperCase();
         destCity = destCity.toUpperCase();
-//        try {
-//            Date parse = sdf.parse(departureTime);
-//            departureTimeToLong = parse.getTime();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate date = LocalDate.parse(departureTime, dtf);
         long millisInUtc = date.atStartOfDay(ZoneOffset.UTC)
