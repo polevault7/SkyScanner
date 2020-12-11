@@ -1,12 +1,11 @@
-//List all the flights
 https://project-skyscanner.herokuapp.com/flights/
 
 ###
-//List the first flight
+
 https://project-skyscanner.herokuapp.com/flights/1
 
 ###
-//Save new flight
+
 POST https://project-skyscanner.herokuapp.com/flights/
 Content-Type: application/json
 
@@ -22,7 +21,7 @@ Content-Type: application/json
 }
 
 ###
-//Update flight with id 1
+
 POST https://project-skyscanner.herokuapp.com/flights/
 Content-Type: application/json
 
@@ -38,15 +37,15 @@ Content-Type: application/json
 }
 
 ###
-//Delete flight with id 6
+
 DELETE https://project-skyscanner.herokuapp.com/flights/6
 
 ###
-//List all the flights after removal of flight with id 6
+
 GET https://project-skyscanner.herokuapp.com/flights/
 
 ###
-//search for flights
+
 GET  https://project-skyscanner.herokuapp.com/flights/search?sourceCity=ka&destCity=mo&departureTime=17.12.2020
 
 ###
@@ -82,38 +81,3 @@ GET http://project-skyscanner.herokuapp.com/flights/search/return?sourceCity=kaz
 
 GET  http://localhost:8080/flights/search/return?sourceCity=kaz&destCity=mos&departureTime=17.12.2020&departureTimeBack=25.12.2020
 
-###
-
-GET http://localhost:8080/flights/2
-
-###
-
-POST http://localhost:8080/flights/
-Content-Type: application/json
-
-{
-  "id": 0,
-  "aircraftId": 1,
-  "sourceCity": "KAZAN",
-  "destCity": "MILAN",
-  "departureTime": 1607979600000,
-  "arrivalTime": 1500000,
-  "journeyDuration": 100000,
-  "price": 30000
-}
-
-###
-
-POST http://localhost:8080/flights
-Content-Type: application/json
-
-{
-  "id": 11,
-  "aircraftId": 11,
-  "sourceCity": "BERLIN",
-  "destCity": "MILAN",
-  "departureTime": 1607979600000,
-  "arrivalTime": 1500000,
-  "journeyDuration": 100000,
-  "price": 30000
-}
