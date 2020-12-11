@@ -6,20 +6,18 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
-import tech.itpark.skyscanner.exception.DataAccessException;
 import tech.itpark.skyscanner.exception.NotFoundException;
 import tech.itpark.skyscanner.mapper.FlightRowMapper;
 import tech.itpark.skyscanner.model.Flight;
 
-import javax.sql.DataSource;
-import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.util.Date;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Component
@@ -134,6 +132,18 @@ public class FlightManager {
                 )), new FlightRowMapper()
         );
 
+    }
+
+    public List<Flight> search(
+            String sourceCity,
+            String destCity,
+            String departureTime,
+            String departureTimeBack
+    ) {
+
+        final var flights = search(sourceCity, destCity, departureTime);
+        flights.addAll(search(destCity, sourceCity, departureTimeBack));
+        return flights;
     }
 
 

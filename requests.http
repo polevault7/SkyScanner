@@ -27,7 +27,7 @@ POST https://project-skyscanner.herokuapp.com/flights/
 Content-Type: application/json
 
 {
-  "id": 5,
+  "id": 1,
   "aircraftId": 12,
   "sourceCity": "TOKYO",
   "destCity": "MELBOURNE",
@@ -69,3 +69,15 @@ GET http://project-skyscanner.herokuapp.com/flights/sort/price?sourceCity=ka&des
 ###
 
 GET http://project-skyscanner.herokuapp.com/flights/sort/departure?sourceCity=ka&destCity=mo&departureTime=17.12.2020
+
+###
+
+GET http://project-skyscanner.herokuapp.com/flights/sort/departure?sourceCity=osak&destCity=quebe&departureTime=20.12.2020
+
+###
+
+GET http://project-skyscanner.herokuapp.com/flights/search/return?sourceCity=kaz&destCity=mos&departureTime=17.12.2020&departureTimeBack=25.12.2020
+
+###
+
+GET  http://localhost:8080/flights/search/return?sourceCity=kaz&destCity=mos&departureTime=17.12.2020&departureTimeBack=25.12.2020

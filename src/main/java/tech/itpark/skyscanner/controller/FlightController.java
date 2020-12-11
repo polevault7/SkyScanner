@@ -1,7 +1,6 @@
 package tech.itpark.skyscanner.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.LifecycleState;
 import org.springframework.web.bind.annotation.*;
 import tech.itpark.skyscanner.manager.FlightManager;
 import tech.itpark.skyscanner.model.Flight;
@@ -29,21 +28,6 @@ public class FlightController {
         return manager.getByAircraftId(aircraftId);
     }
 
-//    @GetMapping("/{id}/save")
-//    public Flight save(
-//            @PathVariable long id,
-//            @RequestParam long aircraftId,
-//            @RequestParam String sourceCity,
-//            @RequestParam String destCity,
-//            @RequestParam long departureTime,
-//            @RequestParam long arrivalTime,
-//            @RequestParam long journeyDuration,
-//            @RequestParam int price
-//    ) {
-//        return manager.save(new Flight
-//                (id, aircraftId, sourceCity, destCity, departureTime, arrivalTime, journeyDuration, price));
-//    }
-
     @PostMapping
     public Flight save(@RequestBody Flight item) {
         return manager.save(item);
@@ -62,6 +46,16 @@ public class FlightController {
             @RequestParam String departureTime
     ) {
         return manager.search(sourceCity, destCity, departureTime);
+    }
+
+    @GetMapping("search/return")
+    public List<Flight> search(
+            @RequestParam String sourceCity,
+            @RequestParam String destCity,
+            @RequestParam String departureTime,
+            @RequestParam String departureTimeBack
+    ) {
+        return manager.search(sourceCity, destCity, departureTime, departureTimeBack);
     }
 
     @GetMapping("/sort/price")
