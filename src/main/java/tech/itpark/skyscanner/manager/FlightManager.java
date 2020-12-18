@@ -97,6 +97,11 @@ public class FlightManager {
         Flight item = getById(id);
 
         template.update(
+                "delete from tickets where flight_id = :id",
+                Map.of("id", item.getId()
+                ));
+
+        template.update(
                 "delete from flights where id = :id",
                 Map.of("id", item.getId())
         );
