@@ -19,10 +19,10 @@ create table flights
     price            integer      not null
 );
 
---create table tickets
---(
---  id          integer primary key auto_increment,
---person_name varchar(255)    not null,
---flight_id   integer not null,
---foreign key (flight_id) references flights
---);
+create table tickets
+(
+    id          integer primary key auto_increment,
+    flight_id   integer      not null,
+    foreign key (flight_id) references flights,
+    passenger_name varchar(255) not null
+);

@@ -42,6 +42,7 @@ public class FlightManager {
         );
     }
 
+
     public List<Flight> getByAircraftId(long aircraftId) {
         return template.query(
                 "select id, aircraft_id, source_city," +

@@ -77,7 +77,38 @@ GET http://project-skyscanner.herokuapp.com/flights/sort/departure?sourceCity=os
 
 GET http://project-skyscanner.herokuapp.com/flights/search/return?sourceCity=kaz&destCity=mos&departureTime=17.12.2020&departureTimeBack=25.12.2020
 
+
 ###
 
-GET  http://localhost:8080/flights/search/return?sourceCity=kaz&destCity=mos&departureTime=17.12.2020&departureTimeBack=25.12.2020
+GET  http://localhost:7070/tickets/byFlight/1
+
+
+###
+
+POST http://localhost:7070/tickets/
+Content-Type: application/json
+
+{
+  "id": 0,
+  "flight": {
+    "id": 1,
+    "aircraftId": 1,
+    "sourceCity": "KAZAN",
+    "destCity": "MOSCOW",
+    "departureTime": 1500000,
+    "arrivalTime": 1608163200000,
+    "journeyDuration": 100000,
+    "price": 30000
+  },
+  "passengerName": "Olesya"
+}
+
+###
+
+GET http://localhost:7070/tickets/byFlight/1
+
+###
+
+DELETE http://localhost:7070/tickets/1
+
 
