@@ -14,6 +14,11 @@ import java.util.List;
 public class TicketController {
     private final TicketManager manager;
 
+    @GetMapping
+    public List<Ticket> getAll(){
+        return manager.getAll();
+    }
+
     @GetMapping("/byFlight/{flightId}")
     public List<Ticket> getAll(@PathVariable long flightId) {
         return manager.getAllByFlightId(flightId);

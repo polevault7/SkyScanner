@@ -20,6 +20,15 @@ public class TicketManager {
     private final NamedParameterJdbcTemplate template;
     private final TicketRowMapper rowMapper = new TicketRowMapper();
 
+    public List<Ticket> getAll() {
+        return template.query("select tickets.id as ticket_id, flight_id , f.aircraft_id, f.source_city, f.destination_city," +
+                        " f.departure_time, f.arrival_time, f.journey_duration, f.price, tickets.passenger_name" +
+                        " from tickets" +
+                        " inner join flights f on tickets.flight_id = f.id order by tickets.id limit 10",
+                rowMapper
+        );
+    }
+
     public List<Ticket> getAllByFlightId(long flightId) {
         return template.query(
                 "select tickets.id as ticket_id, flight_id , f.aircraft_id, f.source_city, f.destination_city," +

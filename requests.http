@@ -1,8 +1,8 @@
-https://project-skyscanner.herokuapp.com/flights/
+GET https://project-skyscanner.herokuapp.com/flights/
 
 ###
 
-https://project-skyscanner.herokuapp.com/flights/1
+GET https://project-skyscanner.herokuapp.com/flights/1
 
 ###
 
@@ -80,16 +80,16 @@ GET http://project-skyscanner.herokuapp.com/flights/search/return?sourceCity=kaz
 
 ###
 
-GET  http://localhost:7070/tickets/byFlight/1
+GET  http://project-skyscanner.herokuapp.com/tickets/byFlight/1
 
 
 ###
 
-POST http://localhost:7070/tickets/
+POST http://project-skyscanner.herokuapp.com/tickets/
 Content-Type: application/json
 
 {
-  "id": 0,
+  "id": 6,
   "flight": {
     "id": 1,
     "aircraftId": 1,
@@ -100,15 +100,29 @@ Content-Type: application/json
     "journeyDuration": 100000,
     "price": 30000
   },
-  "passengerName": "Olesya"
+  "passengerName": "OLESYA"
 }
 
 ###
 
-GET http://localhost:7070/tickets/byFlight/1
+###
+
+GET http://project-skyscanner.herokuapp.com/tickets/byFlight/1
 
 ###
 
-DELETE http://localhost:7070/tickets/1
+DELETE http://project-skyscanner.herokuapp.com/tickets/6
+
+###
+
+GET http://project-skyscanner.herokuapp.com/tickets/byFlight/1
+
+###
+
+GET http://project-skyscanner.herokuapp.com/tickets/search?passengerName=Olesya
+
+###
+
+GET http://project-skyscanner.herokuapp.com/tickets
 
 
